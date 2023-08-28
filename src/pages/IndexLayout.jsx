@@ -7,7 +7,7 @@ export default function IndexLayout() {
       <nav className="navbar">
         <NavBar />
       </nav>
-      <main>
+      <main id="main">
         <Outlet />
       </main>
     </>
