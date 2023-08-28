@@ -11,7 +11,7 @@ const Capsules = () => {
     dispatch(fetchCapsules());
   }, []);
   return (
-    <ul>
+    <ul className="container mx-auto px-4 py-4 grid md:grid-cols-2 gap-4">
       {capsules.map((capsule) => (
         <Capsule key={capsule.capsule_serial} capsule={capsule} />
       ))}
