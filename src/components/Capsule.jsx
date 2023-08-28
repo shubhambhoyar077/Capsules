@@ -9,28 +9,32 @@ const Capsule = ({ capsule }) => {
     setIsOpen(true);
   };
 
-  // function afterOpenModal() {
-  //   // references are now sync'd and can be accessed.
-  //   subtitle.style.color = '#f00';
-  // }
-
   const closeModal = () => {
     setIsOpen(false);
   };
   return (
     <>
       <li>
-        <img src={capsule.images[0]} className="h-80 w-80" />
-        <h1>{capsule.capsule_serial}</h1>
-        <h3>
+        <img
+          src={capsule.images[0]}
+          className="h-auto w-full max-w-full rounded"
+        />
+        <h3 className="font-normal text-xl leading-8">
           {date.toLocaleDateString('en-us', {
             year: 'numeric',
-            month: 'short',
+            month: 'long',
             day: 'numeric',
           })}
         </h3>
-        <p>{capsule.details}</p>
-        <button onClick={openModal}>Open Modal</button>
+        <h1 className="font-extrabold text-2xl leading-8">
+          {capsule.capsule_serial}
+        </h1>
+        <button
+          onClick={openModal}
+          className="border-2 border-white px-8 py-3 w-full md:w-40 uppercase text-sm font-medium hover:bg-white hover:text-black"
+        >
+          Learn More
+        </button>
       </li>
       <CapsuleModal
         capsule={capsule}
