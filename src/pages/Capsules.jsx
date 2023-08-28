@@ -8,9 +8,7 @@ const Capsules = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCapsules()).then(() => {
-      console.log(capsules);
-    });
+    dispatch(fetchCapsules());
   }, []);
   return (
     <ul>
