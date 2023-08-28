@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCapsules } from '../redux/capsules/capsulesSlice';
+import Capsule from '../components/Capsule';
 
 const Capsules = () => {
   const { capsules, isLoading, error } = useSelector((state) => state.capsules);
@@ -14,7 +15,7 @@ const Capsules = () => {
   return (
     <ul>
       {capsules.map((capsule) => (
-        <li>{capsule.capsule_serial}</li>
+        <Capsule key={capsule.capsule_serial} capsule={capsule} />
       ))}
     </ul>
   );
