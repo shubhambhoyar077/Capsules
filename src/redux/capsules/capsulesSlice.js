@@ -2,9 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const initialState = {
   capsules: [],
+  searchList: [],
   isLoading: true,
   error: '',
 };
+
+const searchFilter = () => {};
 
 export const fetchCapsules = createAsyncThunk(
   'capsules/fetchCapsules',
@@ -34,7 +37,15 @@ export const fetchCapsules = createAsyncThunk(
 export const capsulesSlice = createSlice({
   name: 'capsules',
   initialState,
-  reducers: {},
+  reducers: {
+    searchStatus: (state, { payload }) => {
+      if (payload.status === 'All') {
+        state.searchList = state.capsules;
+      } else {
+        state.searchList = searchFilter(state.searchList, payload);
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCapsules.pending, (state) => ({
@@ -45,6 +56,7 @@ export const capsulesSlice = createSlice({
         return {
           ...state,
           capsules: action.payload,
+          searchList: action.payload,
           isLoading: false,
         };
       })
@@ -55,5 +67,7 @@ export const capsulesSlice = createSlice({
       }));
   },
 });
+
+export const { searchStatus } = capsulesSlice.actions;
 
 export default capsulesSlice.reducer;
