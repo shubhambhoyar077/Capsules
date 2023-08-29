@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { searchStatus } from '../redux/capsules/capsulesSlice';
+import { filterCapsules } from '../redux/capsules/capsulesSlice';
 import { useState } from 'react';
 
 const SearchCapsule = () => {
@@ -7,28 +7,40 @@ const SearchCapsule = () => {
   const dispatch = useDispatch();
   const [searchForm, setSearchForm] = useState({
     status: 'all',
-    launch_date: new Date(),
+    launch_date: null,
     type: 'all',
   });
 
-  const statusList = ['all', 'active', 'retired', 'unknown', 'destroyed'];
-  const typeList = ['all', 'Dragon 1.0', 'Dragon 1.1', 'Dragon 2.0'];
+  const statusList = ['active', 'retired', 'unknown', 'destroyed'];
+  const typeList = ['Dragon 1.0', 'Dragon 1.1', 'Dragon 2.0'];
 
   const handleChange = (e) => {
     console.log(e.target.name);
     setSearchForm({ ...searchForm, [e.target.name]: e.target.value });
-    dispatch(searchStatus(searchForm));
+    dispatch(
+      filterCapsules({ ...searchForm, [e.target.name]: e.target.value })
+    );
   };
 
   return (
     <form>
       <div>
         <select value={searchForm.status} onChange={handleChange} name="status">
-          <option value="" className="bg-black">
-            Select a status
+          <option value="all" className="bg-black">
+            all
           </option>
           {statusList.map((status) => (
             <option value={status}>{status}</option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <select value={searchForm.type} onChange={handleChange} name="type">
+          <option value="all" className="bg-black">
+            all
+          </option>
+          {typeList.map((type) => (
+            <option value={type}>{type}</option>
           ))}
         </select>
       </div>

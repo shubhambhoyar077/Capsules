@@ -7,8 +7,6 @@ const initialState = {
   error: '',
 };
 
-const searchFilter = () => {};
-
 export const fetchCapsules = createAsyncThunk(
   'capsules/fetchCapsules',
   async () => {
@@ -38,12 +36,25 @@ export const capsulesSlice = createSlice({
   name: 'capsules',
   initialState,
   reducers: {
-    searchStatus: (state, { payload }) => {
-      if (payload.status === 'All') {
-        state.searchList = state.capsules;
-      } else {
-        state.searchList = searchFilter(state.searchList, payload);
-      }
+    filterCapsules: (state, { payload }) => {
+      state.searchList = state.capsules.filter((capsule) => {
+        if (payload.status !== 'all' && capsule.status !== payload.status) {
+          return false;
+        }
+
+        if (payload.type !== 'all' && capsule.type !== payload.type) {
+          return false;
+        }
+
+        if (
+          payload.launch_date &&
+          new Date(capsule.original_launch) >= new Date(payload.launch_date)
+        ) {
+          return false;
+        }
+
+        return true;
+      });
     },
   },
   extraReducers: (builder) => {
@@ -68,6 +79,6 @@ export const capsulesSlice = createSlice({
   },
 });
 
-export const { searchStatus } = capsulesSlice.actions;
+export const { filterCapsules } = capsulesSlice.actions;
 
 export default capsulesSlice.reducer;
