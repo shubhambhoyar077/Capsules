@@ -48,7 +48,7 @@ export const capsulesSlice = createSlice({
         }
 
         if (
-          payload.launch_date &&
+          new Date(payload.launch_date) &&
           new Date(capsule.original_launch) >= new Date(payload.launch_date)
         ) {
           return false;
