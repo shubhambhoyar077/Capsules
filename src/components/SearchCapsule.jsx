@@ -100,7 +100,7 @@ const SearchCapsule = () => {
           htmlFor="date"
           className="absolute text-sm font-medium text-slate-400 top-0 left-0 px-5"
         >
-          NO LATER THAN
+          LAUNCH NO LATER THAN
         </label>
       </div>
     </form>
