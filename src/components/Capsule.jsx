@@ -17,7 +17,8 @@ const Capsule = ({ capsule }) => {
       <li>
         <img
           src={capsule.images[0]}
-          className="h-auto w-full max-w-full rounded"
+          onClick={openModal}
+          className="h-auto w-full max-w-full rounded cursor-pointer"
         />
         <h3 className="font-normal text-xl leading-8">
           {date.toLocaleDateString('en-us', {
