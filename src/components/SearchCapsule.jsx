@@ -1,9 +1,8 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { filterCapsules } from '../redux/capsules/capsulesSlice';
 import { useState } from 'react';
 
 const SearchCapsule = () => {
-  const { searchList } = useSelector((state) => state.capsules);
   const dispatch = useDispatch();
   const [searchForm, setSearchForm] = useState({
     status: 'all',
