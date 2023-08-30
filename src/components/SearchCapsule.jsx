@@ -21,8 +21,8 @@ const SearchCapsule = () => {
   };
 
   return (
-    <form className="flex flex-col gap-3 items-center my-20 md:flex-row md:justify-center text-2xl font-bold md:px-4">
-      <div className="relative w-6/12 md:w-80">
+    <form className="flex flex-col gap-3 items-center my-20 md:flex-row md:justify-center  text-2xl font-bold md:px-4">
+      <div className="relative w-6/12 min-w-[230px] md:w-80">
         <select
           value={searchForm.status}
           onChange={handleChange}
@@ -32,7 +32,7 @@ const SearchCapsule = () => {
           <option
             key="all"
             value="all"
-            className="text-2xl font-bold  text-white uppercase"
+            className=" text-2xl font-bold  text-white uppercase"
           >
             all
           </option>
@@ -40,7 +40,7 @@ const SearchCapsule = () => {
             <option
               key={status}
               value={status}
-              className="text-2xl font-bold  text-white uppercase"
+              className=" text-2xl font-bold  text-white uppercase"
             >
               {status}
             </option>
@@ -54,7 +54,7 @@ const SearchCapsule = () => {
         </label>
       </div>
 
-      <div className="relative w-6/12 md:w-80 uppercase">
+      <div className="relative w-6/12 min-w-[230px] md:w-80 uppercase">
         <select
           value={searchForm.type}
           onChange={handleChange}
@@ -64,7 +64,7 @@ const SearchCapsule = () => {
           <option
             key="all"
             value="all"
-            className="text-2xl font-bold  text-white uppercase"
+            className=" text-2xl font-bold  text-white uppercase"
           >
             all
           </option>
@@ -72,7 +72,7 @@ const SearchCapsule = () => {
             <option
               key={type}
               value={type}
-              className="text-2xl font-bold  text-white uppercase"
+              className=" text-2xl font-bold  text-white uppercase"
             >
               {type}
             </option>
@@ -86,7 +86,7 @@ const SearchCapsule = () => {
         </label>
       </div>
 
-      <div className="relative w-6/12 md:w-80">
+      <div className="relative w-6/12 min-w-[230px] md:w-80">
         <input
           className="bg-[#292929] w-full px-5 py-5 cursor-pointer"
           type="date"
