@@ -29,14 +29,19 @@ const Pagination = () => {
   return (
     <>
       <ReactPaginate
-        className="flex justify-center"
+        className="flex justify-center py-12"
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel="next"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="previous"
         renderOnZeroPageCount={null}
+        previousLinkClassName="border px-6 py-4"
+        pageLinkClassName="border px-4 py-4 hover:bg-white hover:text-black"
+        nextLinkClassName="border px-6 py-4"
+        disabledLinkClassName="bg-[#292929]"
+        activeLinkClassName="text-black bg-white"
       />
     </>
   );
