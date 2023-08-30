@@ -24,38 +24,65 @@ const SearchCapsule = () => {
 
   return (
     <form className="flex flex-col gap-3 items-center my-20 md:flex-row md:justify-center text-2xl font-bold md:px-4">
-      <select
-        value={searchForm.status}
-        onChange={handleChange}
-        name="status"
-        className="bg-[#292929] w-6/12 px-5 py-5 md:w-80"
-      >
-        <option value="all">all</option>
-        {statusList.map((status) => (
-          <option value={status}>{status}</option>
-        ))}
-      </select>
+      {/* <label htmlFor="status" className="w-6/12">
+        Status:
+      </label> */}
+      <div className="relative w-6/12 md:w-80">
+        <select
+          value={searchForm.status}
+          onChange={handleChange}
+          name="status"
+          className="bg-[#292929] w-full px-5 py-5"
+        >
+          <option value="all">all</option>
+          {statusList.map((status) => (
+            <option value={status}>{status}</option>
+          ))}
+        </select>
+        <label
+          htmlFor="status"
+          className="absolute text-sm font-medium text-slate-400 top-0 left-0 px-5"
+        >
+          CAPSULE STATUS
+        </label>
+      </div>
 
-      <select
-        value={searchForm.type}
-        onChange={handleChange}
-        name="type"
-        className="bg-[#292929] w-6/12 px-5 py-5 md:w-80"
-      >
-        <option value="all">all</option>
-        {typeList.map((type) => (
-          <option value={type}>{type}</option>
-        ))}
-      </select>
+      <div className="relative w-6/12 md:w-80">
+        <select
+          value={searchForm.type}
+          onChange={handleChange}
+          name="type"
+          className="bg-[#292929] w-full px-5 py-5"
+        >
+          <option value="all">all</option>
+          {typeList.map((type) => (
+            <option value={type}>{type}</option>
+          ))}
+        </select>
+        <label
+          htmlFor="type"
+          className="absolute text-sm font-medium text-slate-400 top-0 left-0 px-5"
+        >
+          CAPSULE TYPE
+        </label>
+      </div>
 
-      <input
-        className="bg-[#292929] w-6/12 px-5 py-5 md:w-80"
-        type="date"
-        id="launch_date"
-        value={searchForm.launch_date}
-        onChange={handleChange}
-        name="launch_date"
-      />
+      <div className="relative w-6/12 md:w-80">
+        <input
+          className="bg-[#292929] w-full px-5 py-5"
+          type="date"
+          id="launch_date"
+          value={searchForm.launch_date}
+          onChange={handleChange}
+          name="launch_date"
+        />
+        <label
+          htmlFor="date"
+          className="absolute text-sm font-medium text-slate-400 top-0 left-0 px-5"
+        >
+          NO LATER THAN
+        </label>
+      </div>
     </form>
   );
 };
