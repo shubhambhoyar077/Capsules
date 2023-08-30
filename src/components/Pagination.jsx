@@ -37,9 +37,9 @@ const Pagination = () => {
         pageCount={pageCount}
         previousLabel="previous"
         renderOnZeroPageCount={null}
-        previousLinkClassName="border px-6 py-4"
-        pageLinkClassName="border px-4 py-4 hover:bg-white hover:text-black"
-        nextLinkClassName="border px-6 py-4"
+        previousLinkClassName="border px-3 py-2 md:px-6 md:py-4"
+        pageLinkClassName="border px-3 py-2 md:px-4 md:py-4 hover:bg-white hover:text-black"
+        nextLinkClassName="border px-3 py-2 md:px-6 md:py-4"
         disabledLinkClassName="bg-[#292929] cursor-not-allowed"
         activeLinkClassName="text-black bg-white"
       />
