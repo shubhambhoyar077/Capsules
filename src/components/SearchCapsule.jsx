@@ -6,7 +6,7 @@ const SearchCapsule = () => {
   const dispatch = useDispatch();
   const [searchForm, setSearchForm] = useState({
     status: 'all',
-    launch_date: new Date(),
+    launch_date: new Date().toISOString(),
     type: 'all',
   });
 
