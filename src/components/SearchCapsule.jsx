@@ -7,7 +7,7 @@ const SearchCapsule = () => {
   const dispatch = useDispatch();
   const [searchForm, setSearchForm] = useState({
     status: 'all',
-    launch_date: null,
+    launch_date: new Date(),
     type: 'all',
   });
 
@@ -15,7 +15,6 @@ const SearchCapsule = () => {
   const typeList = ['Dragon 1.0', 'Dragon 1.1', 'Dragon 2.0'];
 
   const handleChange = (e) => {
-    console.log(e.target.name);
     setSearchForm({ ...searchForm, [e.target.name]: e.target.value });
     dispatch(
       filterCapsules({ ...searchForm, [e.target.name]: e.target.value })
