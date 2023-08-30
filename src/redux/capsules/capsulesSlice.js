@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
   capsules: [],
   searchList: [],
+  paginationList: [],
   isLoading: true,
   error: '',
 };
@@ -56,6 +57,12 @@ export const capsulesSlice = createSlice({
         return true;
       });
     },
+    paginationCapsules: (state, { payload }) => {
+      state.paginationList = state.searchList.slice(
+        payload.itemOffset,
+        payload.endOffset
+      );
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -68,6 +75,7 @@ export const capsulesSlice = createSlice({
           ...state,
           capsules: action.payload,
           searchList: action.payload,
+          paginationList: action.payload,
           isLoading: false,
         };
       })
@@ -79,6 +87,6 @@ export const capsulesSlice = createSlice({
   },
 });
 
-export const { filterCapsules } = capsulesSlice.actions;
+export const { filterCapsules, paginationCapsules } = capsulesSlice.actions;
 
 export default capsulesSlice.reducer;
