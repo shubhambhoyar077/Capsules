@@ -3,9 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchCapsules } from '../redux/capsules/capsulesSlice';
 import Capsule from '../components/Capsule';
 import SearchCapsule from '../components/SearchCapsule';
+import Pagination from '../components/Pagination';
 
 const Capsules = () => {
-  const { searchList, isLoading, error } = useSelector(
+  const { paginationList, isLoading, error } = useSelector(
     (state) => state.capsules
   );
   const dispatch = useDispatch();
@@ -20,10 +21,11 @@ const Capsules = () => {
       </div>
       <SearchCapsule />
       <ul className="container mx-auto px-4 py-4 grid md:grid-cols-2 gap-4">
-        {searchList.map((capsule) => (
+        {paginationList.map((capsule) => (
           <Capsule key={capsule.capsule_serial} capsule={capsule} />
         ))}
       </ul>
+      <Pagination />
     </>
   );
 };
