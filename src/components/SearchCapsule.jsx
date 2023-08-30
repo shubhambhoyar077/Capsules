@@ -24,19 +24,28 @@ const SearchCapsule = () => {
 
   return (
     <form className="flex flex-col gap-3 items-center my-20 md:flex-row md:justify-center text-2xl font-bold md:px-4">
-      {/* <label htmlFor="status" className="w-6/12">
-        Status:
-      </label> */}
       <div className="relative w-6/12 md:w-80">
         <select
           value={searchForm.status}
           onChange={handleChange}
           name="status"
-          className="bg-[#292929] w-full px-5 py-5"
+          className="bg-[#292929] w-full px-5 py-5 cursor-pointer uppercase"
         >
-          <option value="all">all</option>
+          <option
+            key="all"
+            value="all"
+            className="text-2xl font-bold  text-white uppercase"
+          >
+            all
+          </option>
           {statusList.map((status) => (
-            <option value={status}>{status}</option>
+            <option
+              key={status}
+              value={status}
+              className="text-2xl font-bold  text-white uppercase"
+            >
+              {status}
+            </option>
           ))}
         </select>
         <label
@@ -47,16 +56,28 @@ const SearchCapsule = () => {
         </label>
       </div>
 
-      <div className="relative w-6/12 md:w-80">
+      <div className="relative w-6/12 md:w-80 uppercase">
         <select
           value={searchForm.type}
           onChange={handleChange}
           name="type"
-          className="bg-[#292929] w-full px-5 py-5"
+          className="bg-[#292929] w-full px-5 py-5 cursor-pointer uppercase"
         >
-          <option value="all">all</option>
+          <option
+            key="all"
+            value="all"
+            className="text-2xl font-bold  text-white uppercase"
+          >
+            all
+          </option>
           {typeList.map((type) => (
-            <option value={type}>{type}</option>
+            <option
+              key={type}
+              value={type}
+              className="text-2xl font-bold  text-white uppercase"
+            >
+              {type}
+            </option>
           ))}
         </select>
         <label
@@ -69,7 +90,7 @@ const SearchCapsule = () => {
 
       <div className="relative w-6/12 md:w-80">
         <input
-          className="bg-[#292929] w-full px-5 py-5"
+          className="bg-[#292929] w-full px-5 py-5 cursor-pointer"
           type="date"
           id="launch_date"
           value={searchForm.launch_date}
