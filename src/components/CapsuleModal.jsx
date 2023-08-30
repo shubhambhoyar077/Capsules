@@ -47,11 +47,13 @@ const CapsuleModal = ({ capsule, modalIsOpen, closeModal }) => {
                 >
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium whitespace-nowrap text-white"
+                    className="px-6 py-4 font-medium whitespace-nowrap bg-gray-600 text-white"
                   >
                     {mission.name}
                   </th>
-                  <td className="px-6 py-4 text-white">{mission.flight}</td>
+                  <td className="px-6 py-4 bg-gray-600 text-white">
+                    {mission.flight}
+                  </td>
                 </tr>
               ))}
             </tbody>
