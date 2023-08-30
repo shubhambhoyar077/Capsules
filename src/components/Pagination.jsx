@@ -40,7 +40,7 @@ const Pagination = () => {
         previousLinkClassName="border px-6 py-4"
         pageLinkClassName="border px-4 py-4 hover:bg-white hover:text-black"
         nextLinkClassName="border px-6 py-4"
-        disabledLinkClassName="bg-[#292929]"
+        disabledLinkClassName="bg-[#292929] cursor-not-allowed"
         activeLinkClassName="text-black bg-white"
       />
     </>
