@@ -23,27 +23,39 @@ const SearchCapsule = () => {
   };
 
   return (
-    <form>
-      <div>
-        <select value={searchForm.status} onChange={handleChange} name="status">
-          <option value="all" className="bg-black">
-            all
-          </option>
-          {statusList.map((status) => (
-            <option value={status}>{status}</option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <select value={searchForm.type} onChange={handleChange} name="type">
-          <option value="all" className="bg-black">
-            all
-          </option>
-          {typeList.map((type) => (
-            <option value={type}>{type}</option>
-          ))}
-        </select>
-      </div>
+    <form className="flex flex-col gap-3 items-center my-20 md:flex-row md:justify-center text-2xl font-bold md:px-4">
+      <select
+        value={searchForm.status}
+        onChange={handleChange}
+        name="status"
+        className="bg-[#292929] w-6/12 px-5 py-5 md:w-80"
+      >
+        <option value="all">all</option>
+        {statusList.map((status) => (
+          <option value={status}>{status}</option>
+        ))}
+      </select>
+
+      <select
+        value={searchForm.type}
+        onChange={handleChange}
+        name="type"
+        className="bg-[#292929] w-6/12 px-5 py-5 md:w-80"
+      >
+        <option value="all">all</option>
+        {typeList.map((type) => (
+          <option value={type}>{type}</option>
+        ))}
+      </select>
+
+      <input
+        className="bg-[#292929] w-6/12 px-5 py-5 md:w-80"
+        type="date"
+        id="launch_date"
+        value={searchForm.launch_date}
+        onChange={handleChange}
+        name="launch_date"
+      />
     </form>
   );
 };
