@@ -15,29 +15,31 @@ const Capsule = ({ capsule }) => {
   };
   return (
     <>
-      <li>
+      <li className="flex flex-col justify-between">
         <img
           src={capsule.images[0]}
           onClick={openModal}
-          className="h-auto w-full max-w-full rounded cursor-pointer"
+          className="h-auto max-w-full rounded cursor-pointer"
           alt={capsule.capsule_serial}
         />
-        <h3 className="font-normal text-xl leading-8">
-          {date.toLocaleDateString('en-us', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </h3>
-        <h1 className="font-extrabold text-2xl leading-8">
-          {capsule.capsule_serial}
-        </h1>
-        <button
-          onClick={openModal}
-          className="border-2 border-white px-8 py-3 w-full md:w-40 uppercase text-sm font-medium hover:bg-white hover:text-black"
-        >
-          Learn More
-        </button>
+        <div>
+          <h3 className="font-normal text-xl leading-8">
+            {date.toLocaleDateString('en-us', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </h3>
+          <h1 className="font-extrabold text-2xl leading-8">
+            {capsule.capsule_serial}
+          </h1>
+          <button
+            onClick={openModal}
+            className="border-2 border-white px-8 py-3 w-full md:w-40 uppercase text-sm font-medium hover:bg-white hover:text-black"
+          >
+            Learn More
+          </button>
+        </div>
       </li>
       <CapsuleModal
         capsule={capsule}
@@ -50,7 +52,7 @@ const Capsule = ({ capsule }) => {
 
 Capsule.propTypes = {
   capsule: PropTypes.shape({
-    original_launch: PropTypes.string.isRequired,
+    original_launch: PropTypes.string,
     images: PropTypes.arrayOf(PropTypes.string),
     capsule_serial: PropTypes.string.isRequired,
   }),
