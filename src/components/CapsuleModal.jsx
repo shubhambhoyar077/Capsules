@@ -23,7 +23,7 @@ const CapsuleModal = ({ capsule, modalIsOpen, closeModal }) => {
           </button>
         </div>
 
-        <div className="p-6 space-y-6">
+        <div className=" p-6 space-y-6 overflow-x-auto">
           <h3 className="text-xl font-medium ">{capsule.details}</h3>
           <h3 className="text-xl font-medium ">Status: {capsule.status}</h3>
           <h3 className="text-xl font-medium ">Landings: {capsule.landings}</h3>
