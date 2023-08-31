@@ -66,15 +66,15 @@ const CapsuleModal = ({ capsule, modalIsOpen, closeModal }) => {
 
 CapsuleModal.propTypes = {
   capsule: PropTypes.shape({
-    original_launch: PropTypes.string.isRequired,
+    original_launch: PropTypes.string,
     capsule_serial: PropTypes.string.isRequired,
     details: PropTypes.string,
     status: PropTypes.string.isRequired,
     landings: PropTypes.number,
-    missions: PropTypes.shape(PropTypes.object),
+    missions: PropTypes.array,
   }),
-  modalIsOpen: PropTypes.object,
-  closeModal: PropTypes.object,
+  modalIsOpen: PropTypes.bool,
+  closeModal: PropTypes.func,
 };
 
 export default CapsuleModal;
