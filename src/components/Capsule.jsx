@@ -15,13 +15,17 @@ const Capsule = ({ capsule }) => {
   };
   return (
     <>
-      <li className="flex flex-col justify-between">
-        <img
-          src={capsule.images[0]}
-          onClick={openModal}
-          className="h-auto max-w-full rounded cursor-pointer"
-          alt={capsule.capsule_serial}
-        />
+      <li className="flex flex-col justify-between gap-4">
+        <div className="max-h-[35rem] max-w-[35rem] overflow-hidden">
+          <img
+            src={
+              capsule.images[Math.floor(Math.random() * capsule.images.length)]
+            }
+            onClick={openModal}
+            className="h-full w-full object-cover rounded cursor-pointer"
+            alt={capsule.capsule_serial}
+          />
+        </div>
         <div>
           <h3 className="font-normal text-xl leading-8">
             {date.toLocaleDateString('en-us', {
