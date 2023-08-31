@@ -1,11 +1,11 @@
 import Modal from 'react-modal';
+import PropTypes from 'prop-types';
 
 Modal.setAppElement('#root');
 const CapsuleModal = ({ capsule, modalIsOpen, closeModal }) => {
   return (
     <Modal
       isOpen={modalIsOpen}
-      // onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
       contentLabel="Example Modal"
       className="relative w-full h-screen bg-transparent flex justify-center items-center"
@@ -62,6 +62,19 @@ const CapsuleModal = ({ capsule, modalIsOpen, closeModal }) => {
       </div>
     </Modal>
   );
+};
+
+CapsuleModal.propTypes = {
+  capsule: PropTypes.shape({
+    original_launch: PropTypes.string.isRequired,
+    capsule_serial: PropTypes.string.isRequired,
+    details: PropTypes.string,
+    status: PropTypes.string.isRequired,
+    landings: PropTypes.number,
+    missions: PropTypes.shape(PropTypes.object),
+  }),
+  modalIsOpen: PropTypes.object,
+  closeModal: PropTypes.object,
 };
 
 export default CapsuleModal;
