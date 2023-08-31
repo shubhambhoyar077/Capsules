@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CapsuleModal from './CapsuleModal';
+import PropTypes from 'prop-types';
 
 const Capsule = ({ capsule }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -44,6 +45,14 @@ const Capsule = ({ capsule }) => {
       />
     </>
   );
+};
+
+Capsule.propTypes = {
+  capsule: PropTypes.shape({
+    original_launch: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string),
+    capsule_serial: PropTypes.string.isRequired,
+  }),
 };
 
 export default Capsule;
