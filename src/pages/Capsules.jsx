@@ -14,7 +14,7 @@ const Capsules = () => {
   }, [dispatch]);
   return (
     <>
-      <div className="h-screen flex justify-center items-center bg-[url('src/assets/space.jpg')] bg-center bg-no-repeat">
+      <div className="h-screen flex justify-center items-center bg-[url('/space.jpg')] bg-center bg-no-repeat">
         <h1 className="font-bold text-4xl md:text-8xl">CAPSULES</h1>
       </div>
       <SearchCapsule />
