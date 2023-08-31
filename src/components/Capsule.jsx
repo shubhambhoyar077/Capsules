@@ -18,9 +18,7 @@ const Capsule = ({ capsule }) => {
       <li className="flex flex-col justify-between gap-4">
         <div className="max-h-[35rem] max-w-[35rem] overflow-hidden">
           <img
-            src={
-              capsule.images[Math.floor(Math.random() * capsule.images.length)]
-            }
+            src={capsule.images[1]}
             onClick={openModal}
             className="h-full w-full object-cover rounded cursor-pointer"
             alt={capsule.capsule_serial}
