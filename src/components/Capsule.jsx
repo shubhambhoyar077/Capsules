@@ -20,6 +20,7 @@ const Capsule = ({ capsule }) => {
           src={capsule.images[0]}
           onClick={openModal}
           className="h-auto w-full max-w-full rounded cursor-pointer"
+          alt={capsule.capsule_serial}
         />
         <h3 className="font-normal text-xl leading-8">
           {date.toLocaleDateString('en-us', {
