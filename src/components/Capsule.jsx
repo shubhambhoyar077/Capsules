@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CapsuleModal from './CapsuleModal';
+import PropTypes from 'prop-types';
 
 const Capsule = ({ capsule }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ const Capsule = ({ capsule }) => {
           src={capsule.images[0]}
           onClick={openModal}
           className="h-auto w-full max-w-full rounded cursor-pointer"
+          alt={capsule.capsule_serial}
         />
         <h3 className="font-normal text-xl leading-8">
           {date.toLocaleDateString('en-us', {
@@ -44,6 +46,14 @@ const Capsule = ({ capsule }) => {
       />
     </>
   );
+};
+
+Capsule.propTypes = {
+  capsule: PropTypes.shape({
+    original_launch: PropTypes.string.isRequired,
+    images: PropTypes.arrayOf(PropTypes.string),
+    capsule_serial: PropTypes.string.isRequired,
+  }),
 };
 
 export default Capsule;

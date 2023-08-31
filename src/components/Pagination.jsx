@@ -11,7 +11,7 @@ const Pagination = () => {
 
   useEffect(() => {
     dispatch(paginationCapsules({ itemOffset: 0, endOffset: itemsPerPage }));
-  }, [searchList]);
+  }, [searchList, dispatch]);
 
   const pageCount = Math.ceil(searchList.length / itemsPerPage);
 

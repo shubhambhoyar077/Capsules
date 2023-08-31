@@ -6,14 +6,12 @@ import SearchCapsule from '../components/SearchCapsule';
 import Pagination from '../components/Pagination';
 
 const Capsules = () => {
-  const { paginationList, isLoading, error } = useSelector(
-    (state) => state.capsules
-  );
+  const { paginationList } = useSelector((state) => state.capsules);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCapsules());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <div className="h-screen flex justify-center items-center bg-[url('src/assets/space.jpg')] bg-center bg-no-repeat">
