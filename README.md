@@ -147,7 +147,7 @@ If you like this project give a ⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Brainstorm Force and SpaceX for original design.
+I would like to thank SpaceX for API and original design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
